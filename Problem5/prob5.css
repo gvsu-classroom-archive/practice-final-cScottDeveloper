@@ -1,0 +1,7 @@
+
+#informationBox {
+    margin:15px;
+    border-radius: 5px;
+    border: grey 2px groove;
+    width: 150px;
+}

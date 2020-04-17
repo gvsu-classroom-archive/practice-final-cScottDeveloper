@@ -8,19 +8,12 @@
 <h1>Test Data</h1>
 
 <div id="input-list">
-   <input type='text'>
-   <input type='text'>
-   <input type='text'>
-   <input type='text'>
-   <input type='text'>
-   <input type='text'>
-   <input type='text'>
-   <input type='text'>
-   <input type='text'>
-   <input type='text'>
-  </div> 
-<button id='submit'>Submit</button>
-<button id='more'>More</button>
+   <input class="valueBox" type='number'>
+   <input class="valueBox" type='number'>
+   <input class="valueBox" type='number'>
+  </div>
+<button id='submit' onclick="Calculate()">Submit</button>
+<button id='more' onclick="makeInputs()">More</button>
 
 <p>Maximum: <span id="max"/></p>
 
@@ -28,7 +21,7 @@
 
 <p>Average: <span id="average"/></p>
 
-<script type="text/javascript" src="maxmin.js"></script>
+<script type="text/javascript" src="maxMin.js"></script>
 
 </body>
 

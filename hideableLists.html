@@ -8,11 +8,10 @@
   </head>
 
 <body>
-
   <h1>States</h1>
 
   <div class='hideableList'>
-    <p class='hl-header'>A list of states</p>
+    <p class='hl-header'>&#x25B6 A list of states</p>
     <ul>
       <li>Alabama</li>
       <li>Alaska</li>
@@ -27,7 +26,7 @@
 
   <h1>Counties</h1>
   <div class='hideableList'>
-    <p class='hl-header'>A list of counties</p>
+    <p class='hl-header'>&#x25B6 A list of counties</p>
     <ul>
       <li>Allegan</li>
       <li>Kent</li>
@@ -39,7 +38,7 @@
 
   <h1>Ordinals</h1>
   <div class='hideableList'>
-    <span class='hl-header'>Ordinals: </span>
+    <span class='hl-header'>&#x25B6 Ordinals: </span>
     <ul class='il'>
       <li>First,</li>
       <li>Second,</li>
@@ -51,7 +50,7 @@
 
   <h1>Ordered List</h1>
   <div class='hideableList'>
-    <span class='hl-header'>Ordinals: </span>
+    <span class='hl-header'>&#x25B6 Ordinals: </span>
     <ol>
       <li>First,</li>
       <li>Second,</li>
@@ -61,7 +60,22 @@
     </ol>
   </div>
 
-  <script src='hideableList.js'></script>
+  <script>
+    let elements = document.getElementsByClassName("hl-header");
+    let i;
+    for (i = 0; i < elements.length; i++) {
+      elements[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        //current element we are on is an h1-header
+        let content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+  </script>
 </body>
 
 </html>

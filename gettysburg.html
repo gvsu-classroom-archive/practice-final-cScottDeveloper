@@ -1,12 +1,13 @@
 <html>
 
 <head lang="en">
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Gettysburg</title>
     <style>
         .allcaps {
             background-color: rgb(244, 255, 244);
         }
+
         .upcase {
             background-color: rgb(238, 246, 253)
         }
@@ -15,35 +16,73 @@
 
 <body>
 
-    <button id='decorate'>Decorate</button>
+<button id='caps' onclick="allCaps()">Capitals</button>
+<button id='toUpper' onclick="handleClick()">Up First</button>
 
-    <p>Four score and <span class="allcaps">seven years ago</span> our <span class="upcase">fathers</span> brought forth
-        on this <span class="upcase">continent</span>, <span class="allcaps">a new nation</span>, conceived in Liberty,
-        and dedicated to the proposition that <span class="allcaps">all</span> men are created equal.</p>
+<p>Four score and <span class="allcaps">seven years ago</span> our <span class="upcase">fathers</span> brought forth
+    on this <span class="upcase">continent</span>, <span class="allcaps">a new nation</span>, conceived in Liberty,
+    and dedicated to the proposition that <span class="allcaps">all</span> men are created equal.</p>
 
-    <p>Now we are engaged in a <span class="allcaps">great civil war</span>, testing whether that <span class="upcase">
-            nation</span>, or any <span class="upcase">nation</span> so conceived and so dedicated, can long endure. We
-        are met on a great
-        battle-field of that war. We have come to dedicate a portion of that field, as a <span class="allcaps">final
+<p>Now we are engaged in a <span class="allcaps">great civil war</span>, testing whether that <span class="upcase">
+    nationasdfads</span>, or any <span class="upcase">nation</span> so conceived and so dedicated, can long endure. We
+    are met on a great
+    battle-field of that war. We have come to dedicate a portion of that field, as a <span class="allcaps">final
             resting place</span>
-        for those who here gave their lives that that <span class="upcase">nation</span> might live. It is altogether
-        fitting and proper that we should do this.</p>
+    for those who here gave their lives that that <span class="upcase">nation</span> might live. It is altogether
+    fitting and proper that we should do this.</p>
 
-    <p>But, in a larger sense, we can not <span class="allcaps">dedicate</span> -- we can not <span
-            class="allcaps">consecrate</span>
-        -- we can not <span class="allcaps">hallow</span> -- this ground. The brave men, living and dead, who struggled
-        here, have consecrated it, far above our poor power to add or detract. The world will little note, nor long
-        remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be
-        dedicated here to the unfinished work which they who fought here have thus far so nobly advanced. It is rather
-        for us to be here dedicated to the great task remaining before us -- that from these honored dead we take
-        increased devotion to that cause for which they gave the last full measure of devotion -- that we here highly
-        resolve that these dead <span class="allcaps">shall not have died in vain</span> -- that this nation, under God,
-        shall have a new birth of freedom -- and that government <span class="upcase">of the people, by the people, for
+<p>But, in a larger sense, we can not <span class="allcaps">dedicate</span> -- we can not <span
+        class="allcaps">consecrate</span>
+    -- we can not <span class="allcaps">hallow</span> -- this ground. The brave men, living and dead, who struggled
+    here, have consecrated it, far above our poor power to add or detract. The world will little note, nor long
+    remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be
+    dedicated here to the unfinished work which they who fought here have thus far so nobly advanced. It is rather
+    for us to be here dedicated to the great task remaining before us -- that from these honored dead we take
+    increased devotion to that cause for which they gave the last full measure of devotion -- that we here highly
+    resolve that these dead <span class="allcaps">shall not have died in vain</span> -- that this nation, under God,
+    shall have a new birth of freedom -- and that government <span class="upcase">of the people, by the people, for
             the people</span>, shall not perish from
-        the <span class="upcase">earth</span>.</p>
+    the <span class="upcase">earth</span>.</p>
 
-    
-        <script src='upcase.js'></script>
+<script>
+    function allCaps() {
+        let elements = document.getElementsByClassName("allcaps");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].textContent = elements[i].textContent.toUpperCase();
+        }
+        console.log("this changed");
+    }
+
+    function handleClick() {
+        //Get everything with the classname allcaps
+        //let toAllCaps = document.getElementsByClassName('allcaps');
+
+        //Get everything with the classname upcase
+        let upperCase = document.getElementsByClassName('upcase');
+
+        //make everything with the classname upcase, uppercase
+        // for (let item of toAllCaps) {
+        //     item.style.textTransform = 'uppercase';
+        // }
+
+        //Make the first character uppercase and add the rest of the word
+        for (let item of upperCase) {
+            //If it's just a single word we can split it and capitalize the first letter
+            if (item.innerText.split(' ').length === 1) {
+                item.innerText = item.innerText.charAt(0).toUpperCase() + item.innerText.slice(1);
+            } else {
+                //For multiple words we can use split to store them in array and then capitalize the first letter of each array index
+                let word = item.innerText.split(' ');
+                for (let i = 0; i < word.length; i++) {
+                    word[i] = word[i].charAt(0).toUpperCase() + word[i].substring(1);
+                }
+                item.innerText = word.join(' ');
+            }
+        }
+    }
+
+
+</script>
 
 </body>
 
